@@ -1,0 +1,28 @@
+services:
+  <PROJECT_NAME>:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: <PROJECT_NAME>:local
+    platform: linux/amd64
+    entrypoint: bash -c "sleep infinity"
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000"
+
+    volumes:
+      # Mount current project directory to /var/task in the container
+      - .:/var/task
+
+      # prevent host venv from being overwritten by container venv
+      # and mount the venv created in the build to our working dir
+      - /var/task/venv/
+      - venv:/var/task/venv
+
+      # This will allow you to use the AWS config and credentials
+      # already set up locally from within the Docker container.
+      - "~/.aws:/root/.aws"
+
+volumes:
+  venv:

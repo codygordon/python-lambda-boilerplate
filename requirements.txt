@@ -1,0 +1,5 @@
+# NOTE: Parsons 6+ does not require using PARSONS_LIMITED_DEPENDENCIES
+parsons[redshift]~=6.0.0
+mo-pywell~=1.1.0
+pydantic~=2.13.4
+zappa~=0.62.1

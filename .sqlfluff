@@ -1,0 +1,69 @@
+# cspell:disable
+
+# default config reference:
+# https://docs.sqlfluff.com/en/stable/configuration/default_configuration.html
+
+[sqlfluff]
+dialect = redshift
+templater = jinja
+max_line_length = 120
+forbid_subquery_in = both
+large_file_skip_byte_limit = 30000
+
+# AM06 - Inconsistent column references in GROUP BY/ORDER BY clauses.
+#        Why: Allow use of col numbers or names within the same file
+# RF04 - Keywords should not be used as identifiers
+#        Why: We often don't have a choice, and many are valid to be used
+# ST01 - Do not specify else null in a case when statement
+#        Why: Allow for more explicit pattern if desired
+# ST06 - Select wildcards then simple targets before calculations and aggregates
+#        Why: Allow flexibility in column ordering
+exclude_rules = AM06, RF04, ST01, ST06
+
+[sqlfluff:indentation]
+implicit_indents = allow
+indented_on_contents = false
+
+[sqlfluff:rules:aliasing.length]
+min_alias_length = 3
+
+[sqlfluff:rules:capitalisation.functions]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.literals]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.types]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:convention.not_equal]
+preferred_not_equal_style = c_style
+
+[sqlfluff:rules:layout.long_lines]
+ignore_comment_lines = true
+
+[sqlfluff:templater:jinja:context]
+list_size = 0
+audience_size = 0
+file_name = placeholder
+audience_file_name = placeholder
+email_ids = 2973872
+link_ids = 1
+lapsed_group = ''
+opt_in_path_ids = 1234, 5678
+petition_slug = test
+contact_list_name = placeholder
+broadcast_sms_subs = include
+instance_subdomain = placeholder
+audience_name = placeholder
+cds = 'NY-01', 'CA-12'
+actions_90_days = 0
+unload_enabled = true
+best_state = placeholder
+last_action = placeholder

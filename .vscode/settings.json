@@ -1,0 +1,15 @@
+{
+  "python.defaultInterpreterPath": "venv/bin/python",
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  // Allow comments and trailing commas in JSON files.
+  "json.schemas": [
+    {
+      "fileMatch": ["*.json"],
+      "schema": {
+        "allowComments": true,
+        "allowTrailingCommas": true
+      }
+    }
+  ]
+}

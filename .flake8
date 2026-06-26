@@ -1,0 +1,15 @@
+[flake8]
+extend-ignore =
+    # line too long
+    # black should take care of this when needed
+    E501,
+    # multiple statements on one line (colon)
+    # black may format like this
+    E704,
+    # line break occurred before a binary operator
+    # doesn't play well with black
+    W503
+exclude =
+    __pycache__
+    venv
+    .venv

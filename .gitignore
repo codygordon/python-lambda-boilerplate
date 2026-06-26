@@ -1,0 +1,12 @@
+*.pyc
+*~
+*#
+ve
+static_build
+db.sqlite3
+site-packages
+.env
+venv
+.venv.
+.DS_Store
+docker-compose.override.yml

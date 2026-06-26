@@ -1,0 +1,40 @@
+{
+  "base_config": {
+    "project_name": "<PROJECT_NAME>",
+    "runtime": "python3.13",
+    "aws_region": "us-west-1",
+    "vpc_config": {
+      "SubnetIds": ["subnet-d8385681"],
+      "SecurityGroupIds": ["sg-c2ee0da5"]
+    },
+    "role_name": "test_python",
+    "s3_bucket": "zappa-vkk9z9k3x",
+    "timeout_seconds": 900,
+    "keep_warm": false,
+    "slim_handler": true,
+    "include": [],
+    "exclude": [
+      "*.sqlite3",
+      "*.pyc",
+      "__pycache__",
+      "static_build",
+      ".git",
+      ".github"
+    ],
+    "apigateway_enabled": false,
+    "log_level": "INFO"
+  },
+
+  "prod": {
+    "extends": "base_config",
+    "events": [],
+    "environment_variables": {}
+  },
+
+  "staging": {
+    "extends": "base_config",
+    "debug": true,
+    "events": [],
+    "environment_variables": {}
+  }
+}
